@@ -14,12 +14,12 @@
     "php": "^7.0",
     "league/csv": "^9.1",
     "nimmneun/onesheet": "^1.0",
-    "typo3/cms-backend": "^8.7 || ^9.5",
-    "typo3/cms-core": "^8.7 || ^9.5",
-    "typo3/cms-extbase": "^8.7 || ^9.5",
-    "typo3/cms-fluid": "^8.7 || ^9.5",
-    "typo3/cms-form": "^8.7 || ^9.5",
-    "typo3/cms-frontend": "^8.7 || ^9.5",
+    "typo3/cms-backend": "^8 || ^9 || ^10",
+    "typo3/cms-core": "^8 || ^9 || ^10",
+    "typo3/cms-extbase": "^8 || ^9 || ^10",
+    "typo3/cms-fluid": "^8 || ^9 || ^10",
+    "typo3/cms-form": "^8 || ^9 || ^10",
+    "typo3/cms-frontend": "^8 || ^9 || ^10",
     "typo3fluid/fluid": "^2.3"
   },
   "require-dev": {
