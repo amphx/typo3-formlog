@@ -12,8 +12,9 @@ use Pagemachine\Formlog\Form\Element\JSONDataElement;
 use Prophecy\Argument;
 use TYPO3\CMS\Backend\Form\NodeFactory;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Lang\LanguageService;
+use TYPO3\CMS\Lang\LanguageService as LegacyLanguageService;
 
 /**
  * Testcase for Pagemachine\Formlog\Form\Element\JSONDataElement
@@ -46,7 +47,13 @@ class JSONDataElementTest extends UnitTestCase
                 'itemFormElValue' => $formElementValue,
             ],
         ]);
-        $languageService = $this->prophesize(LanguageService::class);
+
+        if (class_exists(LegacyLanguageService::class)) {
+            $languageService = $this->prophesize(LegacyLanguageService::class);
+        } else {
+            $languageService = $this->prophesize(LanguageService::class);
+        }
+
         $languageService->sL(Argument::containingString('field'))->willReturn('Field');
         $languageService->sL(Argument::containingString('value'))->willReturn('Value');
         $GLOBALS['LANG'] = $languageService->reveal();
